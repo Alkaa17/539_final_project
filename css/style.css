@@ -1,0 +1,430 @@
+* {
+  box-sizing: border-box;
+}
+
+#timeContainer {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+/* Style for the time */
+#time {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--text-color);
+  font-family: "Arial", sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for the day */
+#day {
+  font-size: 24px;
+  color: var(--text-color);
+  font-family: "Arial", sans-serif;
+  margin-top: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* General Style for To-Do List Items */
+ul li {
+  color: var(--text-color);
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  font-size: 18px;
+  transition: 0.2s;
+  background: none; /* Remove default background to avoid conflicts */
+  list-style-type: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Priority Colors */
+.red {
+  background-color: #ff4d4d; /* High Priority - Red */
+  color: white; /* Ensure text is visible on red background */
+}
+
+.orange {
+  background-color: #ffcc00; /* Medium Priority - Orange */
+  color: black; /* Ensure text is visible on orange background */
+}
+
+.yellow {
+  background-color: #ffff99; /* Low Priority - Yellow */
+  color: black; /* Ensure text is visible on yellow background */
+}
+
+/* Style for the Done List */
+.done-list li {
+  font-size: 18px;
+  font-family: "Arial", sans-serif;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--header-bg);
+  color: var(--text-color);
+  position: relative;
+  text-decoration: line-through; /* Strikethrough for completed tasks */
+}
+
+.done-list li .timestamp {
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  position: absolute;
+  right: 10px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Input styling for due date and priority */
+#dueDate {
+  margin: 0 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#priority {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Style the header */
+.header {
+  background-color: var(--header-bg);
+  padding: 2ch 40px;
+  color: var(--text-color);
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#myUL {
+  margin-top: 50px;
+  list-style-type: none;
+  text-align: left;
+}
+
+/* Style the input */
+input {
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 7px 20px;
+  background: #000000;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.addBtn:hover {
+  background: #555;
+}
+
+/* Button styles */
+.done-btn,
+.edit-btn,
+.delete-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.done-btn {
+  background-color: #4caf50; /* Green for "Done" */
+  color: white;
+}
+
+.done-btn:hover {
+  background-color: #45a049;
+}
+
+.edit-btn {
+  background-color: #2196f3; /* Blue for "Edit" */
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0b7dda;
+}
+
+.delete-btn {
+  background-color: #f44336; /* Red for "Delete" */
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: black;
+  padding: 8px 12px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  border: none;
+  width: 100%;
+  background: none;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.music-player {
+  position: absolute; /* Position relative to the page */
+  top: 10px; /* Distance from the top of the page */
+  right: 10px; /* Distance from the right of the page */
+  background-color: #f4f4f4;
+  padding: 0px 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.music-player select {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.music-player button {
+  margin: 5px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+}
+
+.music-player button:hover {
+  background-color: #45a049;
+}
+
+/* Default (Light Theme) Variables */
+:root {
+  --background-color: white;
+  --text-color: black;
+  --header-bg: #a5a9ff;
+  --button-bg: #333;
+  --button-text-color: white;
+  --background-image: url("../images/Morning.jpg");
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --header-bg: #333;
+  --button-bg: #555;
+  --button-text-color: #e0e0e0;
+  --background-image: url("../images/Night.jpg");
+  --shadow-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Apply Theme Variables */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.header {
+  background-color: var(--header-bg);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.header {
+  background-color: #becbff79;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  margin: 50px;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.calendar th,
+.calendar td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+}
+
+.calendar th {
+  background-color: #f4f4f4;
+}
+
+.calendar tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+canvas {
+  display: block;
+  margin: 20px auto;
+}
+
+#myDone {
+  margin: 50px;
+  background-color: #becbff79;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: black 0px 0px 10px;
+}
+
+#doneUL {
+  list-style-type: none;
+  text-align: left;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 35px;
+  width: 35px;
+  left: 5px;
+  bottom: 2.5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(60px);
+}
