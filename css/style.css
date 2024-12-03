@@ -328,7 +328,7 @@ button:hover {
   color: white;
   padding: 10px 20px;
   text-align: center;
-  margin: 50px;
+  margin: 50px 200px;
 }
 
 .header nav a {
@@ -364,7 +364,7 @@ canvas {
 }
 
 #myDone {
-  margin: 50px;
+  margin: 50px 200px;
   background-color: #becbff79;
   padding: 10px;
   text-align: center;
