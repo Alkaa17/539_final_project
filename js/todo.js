@@ -312,55 +312,50 @@ window.onload = function () {
 };
 
 let currentMusicIframe = null;
+let isPlaying = false;
 
-// Play the selected music
-function playMusic() {
+function startMusic() {
   const musicOptions = document.getElementById("musicOptions");
   const selectedMusic = musicOptions.value;
+  const playPauseButton = document.getElementById("playPauseButton");
+  const musicPlayerContainer = document.getElementById("musicPlayerContainer");
 
   if (!selectedMusic) {
     alert("Please select a type of music to play!");
     return;
   }
 
-  const musicPlayerContainer = document.getElementById("musicPlayerContainer");
-
-  // If a music iframe already exists, remove it
   if (currentMusicIframe) {
     musicPlayerContainer.removeChild(currentMusicIframe);
   }
 
-  // Create and embed the YouTube iframe
-  const iframe = document.createElement("iframe");
-  iframe.src = `${selectedMusic}?autoplay=1`;
-  iframe.allow = "autoplay";
-  musicPlayerContainer.appendChild(iframe);
-
-  currentMusicIframe = iframe; // Save the current iframe
+  currentMusicIframe = document.createElement("iframe");
+  currentMusicIframe.style.display = "none"; // Hide the video
+  currentMusicIframe.src = `${selectedMusic}?autoplay=1`;
+  currentMusicIframe.allow = "autoplay";
+  musicPlayerContainer.appendChild(currentMusicIframe);
+  playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+  isPlaying = true;
 }
 
-// Pause the music (by reloading iframe without autoplay)
-function pauseMusic() {
-  if (!currentMusicIframe) {
-    alert("No music is playing currently!");
-    return;
+function togglePlayPause() {
+  const playPauseButton = document.getElementById("playPauseButton");
+
+  if (isPlaying) {
+    currentMusicIframe.src = currentMusicIframe.src.replace(
+      "autoplay=1",
+      "autoplay=0"
+    );
+    playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+  } else {
+    currentMusicIframe.src = currentMusicIframe.src.replace(
+      "autoplay=0",
+      "autoplay=1"
+    );
+    playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
   }
 
-  const musicPlayerContainer = document.getElementById("musicPlayerContainer");
-  const pausedSrc = currentMusicIframe.src.replace("?autoplay=1", "");
-  currentMusicIframe.src = pausedSrc;
-}
-
-// Stop the music
-function stopMusic() {
-  if (!currentMusicIframe) {
-    alert("No music is playing currently!");
-    return;
-  }
-
-  const musicPlayerContainer = document.getElementById("musicPlayerContainer");
-  musicPlayerContainer.removeChild(currentMusicIframe);
-  currentMusicIframe = null; // Reset current iframe
+  isPlaying = !isPlaying;
 }
 
 // Toggle between dark and light themes
@@ -374,12 +369,7 @@ function toggleTheme() {
   // Switch between themes
   const newTheme = currentTheme === "light" ? "dark" : "light";
   body.setAttribute("data-theme", newTheme);
-
-  // Update button text
-  themeToggleBtn.textContent =
-    newTheme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode";
-
-  // Save the new theme in localStorage
+  themeToggleBtn.checked = newTheme === "dark";
   localStorage.setItem("theme", newTheme);
 }
 
@@ -389,15 +379,14 @@ function loadTheme() {
   document.body.setAttribute("data-theme", savedTheme);
 
   const themeToggleBtn = document.getElementById("themeToggle");
-  themeToggleBtn.textContent =
-    savedTheme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode";
+  themeToggleBtn.checked = savedTheme === "dark";
 }
 
 // Initialize theme on page load
 window.onload = function () {
   loadTheme();
-  loadTasks(); // Load tasks if this is part of the same file
+  loadTasks();
 };
 
 // Add event listener to the theme toggle button
-document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+document.getElementById("themeToggle").addEventListener("change", toggleTheme);
