@@ -124,11 +124,13 @@ ul li {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
   max-width: 600px;
+  box-shadow: black 0px 0px 10px;
 }
 
 .header h2 {
   margin: 0;
   font-size: 24px;
+  color: var(--text-color);
 }
 
 .header input[type="text"],
@@ -260,11 +262,11 @@ ul li {
   position: absolute; /* Position relative to the page */
   top: 10px; /* Distance from the top of the page */
   right: 10px; /* Distance from the right of the page */
-  background-color: #f4f4f4;
+  background-color: var(--music-bg); /* Background color */
   padding: 0px 5px;
-  border: 1px solid #ddd;
   border-radius: 5px;
   z-index: 1000; /* Ensure it's on top of other elements */
+  box-shadow: black 0px 0px 10px;
 }
 
 .music-player select {
@@ -293,6 +295,7 @@ ul li {
   --background-color: white;
   --text-color: black;
   --header-bg: #a5a9ff;
+  --music-bg: #ff397bac;
   --button-bg: #333;
   --button-text-color: white;
   --background-image: url("../images/Morning.jpg");
@@ -302,8 +305,9 @@ ul li {
 /* Dark Theme Variables */
 [data-theme="dark"] {
   --background-color: #121212;
-  --text-color: #e0e0e0;
+  --text-color: #ffffff;
   --header-bg: #333;
+  --music-bg: #88a0ffd8;
   --button-bg: #555;
   --button-text-color: #e0e0e0;
   --background-image: url("../images/Night.jpg");
@@ -312,6 +316,7 @@ ul li {
 
 /* Apply Theme Variables */
 body {
+  font-family: Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   background-image: var(--background-image);
@@ -346,7 +351,7 @@ button:hover {
 }
 
 .header {
-  background-color: #becbff79;
+  background-color: #88a0ffd8;
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -387,7 +392,7 @@ canvas {
 
 #myDone {
   margin: 50px 200px;
-  background-color: #becbff79;
+  background-color: #88a0ffd8;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
@@ -420,7 +425,7 @@ canvas {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ff397bac;
   transition: 0.4s;
   border-radius: 50px;
   display: flex;
@@ -441,7 +446,7 @@ canvas {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #88a0ffd8;
 }
 
 input:checked + .slider:before {
