@@ -2,10 +2,21 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 #timeContainer {
   text-align: center;
   margin-bottom: 20px;
-  margin-bottom: 40px;
 }
 
 /* Style for the time */
@@ -106,49 +117,60 @@ ul li {
 /* Style the header */
 .header {
   background-color: var(--header-bg);
-  padding: 2ch 40px;
+  padding: 20px;
   color: var(--text-color);
   text-align: center;
-  border-radius: 5px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
 }
 
-/* Clear floats after the header */
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
+.header h2 {
+  margin: 0;
+  font-size: 24px;
 }
 
-#myUL {
-  margin-top: 50px;
-  list-style-type: none;
-  text-align: left;
-}
-
-/* Style the input */
-input {
-  margin-bottom: 5px;
-  border: none;
-  border-radius: 0;
-  width: 75%;
+.header input[type="text"],
+.header input[type="date"],
+.header select {
+  width: calc(100% - 22px);
   padding: 10px;
-  float: left;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   font-size: 16px;
 }
 
-/* Style the "Add" button */
-.addBtn {
-  padding: 7px 20px;
-  background: #000000;
+.header .addBtn {
+  width: 100%;
+  padding: 10px;
+  background: #4caf50;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   border-radius: 5px;
+  border: none;
+  margin-top: 10px;
 }
 
-.addBtn:hover {
-  background: #555;
+.header .addBtn:hover {
+  background: #45a049;
+}
+
+#myUL {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+#myUL li {
+  background: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Button styles */
@@ -381,10 +403,8 @@ canvas {
 .switch {
   position: relative;
   display: inline-block;
-  width: 100px;
+  width: 80px;
   height: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
 }
 
 .switch input {
@@ -402,7 +422,7 @@ canvas {
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 40px;
+  border-radius: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -415,16 +435,38 @@ canvas {
   height: 35px;
   width: 35px;
   left: 5px;
-  bottom: 2.5px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #4caf50;
+  background-color: #2196f3;
 }
 
 input:checked + .slider:before {
-  transform: translateX(60px);
+  transform: translateX(36px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  #myDone {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  #myDone {
+    margin: 10px;
+  }
 }
