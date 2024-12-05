@@ -1,70 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My To Do List</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-</head>
-<body>
-<main>
-<div class="theme-toggle">
-    <label class="switch">
-        <input type="checkbox" id="themeToggle">
-        <span class="slider">
-            <span class="light-text">Light</span>
-            <span class="dark-text">Dark</span>
-        </span>
-    </label>
-</div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="theme-toggle">
+        <label class="switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" placeholder="toggle" />
+          <span class="slider">
+            <span><i class="fa-solid fa-moon fa-lg"></i></span>
+            <span><i class="fa-regular fa-sun fa-lg"></i></span>
+          </span>
+        </label>
+      </div>
 
-<div class="music-player">
-    <h2>Music Player</h2>
-    <select id="musicOptions">
-        <option value="" selected disabled>Select Music</option>
-        <option value="https://www.youtube.com/embed/2OEL4P1Rz04">Relaxation</option>
-        <option value="https://www.youtube.com/embed/RqzGzwTY-6w">Brown Noise</option>
-        <option value="https://www.youtube.com/embed/lTRiuFIWV54">Rain Drops</option>
-    </select>
-    <button onclick="playMusic()">Play</button>
-    <button onclick="pauseMusic()">Pause</button>
-    <button onclick="stopMusic()">Stop</button>
-    <div id="musicPlayerContainer">
-        <!-- Embedded YouTube iframe will be added dynamically -->
-    </div>
-</div>
+      <div class="music-player">
+        <h2>Music Player</h2>
+        <select id="musicOptions" title="music options" onchange="startMusic()">
+          <option value="" selected disabled>Select Music</option>
+          <option value="https://www.youtube.com/embed/2OEL4P1Rz04">
+            Relaxation
+          </option>
+          <option value="https://www.youtube.com/embed/RqzGzwTY-6w">
+            Brown Noise
+          </option>
+          <option value="https://www.youtube.com/embed/lTRiuFIWV54">
+            Rain Drops
+          </option>
+        </select>
+        <button
+          type="button"
+          title="play button"
+          id="playPauseButton"
+          onclick="togglePlayPause()"
+        >
+          <i class="fas fa-play"></i>
+        </button>
+        <div id="musicPlayerContainer">
+          <div id="player"></div>
+        </div>
+      </div>
 
-<div id="timeContainer">
-    <div id="time"></div>
-    <div id="day"></div>
-</div>
+      <div id="timeContainer">
+        <div id="time"></div>
+        <div id="day"></div>
+      </div>
 
-<div id="myDIV" class="header">
-    <h2>My To Do List</h2>
-    <input type="text" id="myInput" placeholder="Add task">
-    <input type="date" id="dueDate" placeholder="Due Date">
-    <select id="priority">
-        <option value="red">High Priority</option>
-        <option value="orange">Medium Priority</option>
-        <option value="yellow">Low Priority</option>
-    </select>
-    <span onclick="newElement()" class="addBtn">+</span>
-    <ul id="myUL">
-        <!-- To Do List -->
-    </ul>
-</div>
+      <div class="container">
+        <div class="header">
+          <h2>My To Do List</h2>
+          <input type="text" id="myInput" placeholder="Add task" />
+          <input type="date" id="dueDate" placeholder="Due Date" />
+          <select id="priority" title="select priority">
+            <option value="red">High Priority</option>
+            <option value="orange">Medium Priority</option>
+            <option value="yellow">Low Priority</option>
+          </select>
+          <span onclick="newElement()" class="addBtn">+</span>
+          <ul id="myUL">
+            <!-- To Do List -->
+          </ul>
+        </div>
 
-<div id="myDone">
-<h2 class="done-header">Done List</h2>
-<ul id="doneUL" class="done-list">
-    <!-- Done List -->
-</ul>
-</div>
-</main>
-<audio id="celebrationAudio" src="music/cheering-and-clapping-crowd-2-6029.mp3" preload="auto"></audio>
+        <div id="myDone">
+          <h2>Done List</h2>
+          <ul id="doneUL" class="done-list">
+            <!-- Done List -->
+          </ul>
+        </div>
+      </div>
+    </main>
+    <audio
+      id="celebrationAudio"
+      src="music/cheering-and-clapping-crowd-2-6029.mp3"
+      preload="auto"
+    ></audio>
 
-<script src="js/todo.js"></script>
-<script src="js/dateTime.js"></script>
-</body>
+    <script src="js/todo.js"></script>
+    <script src="js/dateTime.js"></script>
+  </body>
 </html>
