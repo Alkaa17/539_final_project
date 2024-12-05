@@ -58,15 +58,21 @@
       <div class="container">
         <div class="header">
           <h2>My To Do List</h2>
-          <input type="text" id="myInput" placeholder="Add task" />
-          <span onclick="newElement()" class="addBtn">+</span>
-          <input type="date" id="dueDate" placeholder="Due Date" />
-          <select id="priority" title="select priority">
-            <option value="red">High Priority</option>
-            <option value="orange">Medium Priority</option>
-            <option value="yellow">Low Priority</option>
-          </select>
-          
+          <div class="add-task-card">
+            <div>
+              <input type="text" id="myInput" placeholder="Add task" />
+            </div>
+            <div class="task-options">
+              <input type="date" id="dueDate" placeholder="Due Date" />
+              <select id="priority" title="select priority">
+                <option value="red">High Priority</option>
+                <option value="orange">Medium Priority</option>
+                <option value="yellow">Low Priority</option>
+              </select>
+              <span onclick="newElement()" class="addBtn">+</span>
+            </div>
+          </div>
+
           <ul id="myUL">
             <!-- To Do List -->
           </ul>

@@ -14,6 +14,11 @@ body {
   background-attachment: fixed;
 }
 
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
 #timeContainer {
   text-align: center;
   margin-bottom: 20px;
@@ -71,8 +76,8 @@ ul li {
 .done-list li {
   font-size: 18px;
   font-family: "Arial", sans-serif;
-  margin: 10px 0;
-  padding: 10px;
+  margin: 20px;
+  /* padding: 10px; */
   border-radius: 5px;
   background-color: var(--header-bg);
   color: var(--text-color);
@@ -85,7 +90,7 @@ ul li {
   font-family: "Arial", sans-serif;
   color: #fff;
   position: absolute;
-  right: 10px;
+  right: 20px;
 }
 
 /* Style the close button */
@@ -123,8 +128,19 @@ ul li {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  max-width: 600px;
   box-shadow: black 0px 0px 10px;
+}
+
+.add-task-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .header h2 {
@@ -133,12 +149,19 @@ ul li {
   color: var(--text-color);
 }
 
-.header input[type="text"],
-.header input[type="date"],
-.header select {
-  width: calc(100% - 22px);
+.header input[type="text"] {
+  width: 100%;
   padding: 10px;
   margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.header input[type="date"],
+.header select {
+  width: 100%;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -153,7 +176,7 @@ ul li {
   cursor: pointer;
   border-radius: 5px;
   border: none;
-  margin-top: 10px;
+  margin-left: 5px;
 }
 
 .header .addBtn:hover {
@@ -168,7 +191,6 @@ ul li {
 }
 
 #myUL li {
-  background: white;
   margin: 10px 0;
   padding: 10px;
   border-radius: 5px;
@@ -294,8 +316,8 @@ ul li {
 :root {
   --background-color: white;
   --text-color: black;
-  --header-bg: #a5a9ff;
-  --music-bg: #ff397bac;
+  --header-bg: #f7edda97;
+  --music-bg: #f7edda97;
   --button-bg: #333;
   --button-text-color: white;
   --background-image: url("../images/Morning.jpg");
@@ -306,7 +328,7 @@ ul li {
 [data-theme="dark"] {
   --background-color: #121212;
   --text-color: #ffffff;
-  --header-bg: #333;
+  --header-bg: #88a0ffd8;
   --music-bg: #88a0ffd8;
   --button-bg: #555;
   --button-text-color: #e0e0e0;
@@ -351,7 +373,6 @@ button:hover {
 }
 
 .header {
-  background-color: #88a0ffd8;
   color: white;
   padding: 10px 20px;
   text-align: center;
@@ -392,8 +413,8 @@ canvas {
 
 #myDone {
   margin: 50px 200px;
-  background-color: #88a0ffd8;
-  padding: 10px;
+  background-color: var(--header-bg);
+  padding: 20px;
   text-align: center;
   border-radius: 5px;
   box-shadow: black 0px 0px 10px;
@@ -425,7 +446,7 @@ canvas {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ff397bac;
+  background-color: #f7edda97;
   transition: 0.4s;
   border-radius: 50px;
   display: flex;
