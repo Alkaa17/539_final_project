@@ -50,6 +50,33 @@
         </div>
       </div>
 
+      <div class="music-dropdown">
+        <button class="music-toggle">
+          <i class="fas fa-music"></i>
+        </button>
+        <div class="music-player">
+          <h2>Music Player</h2>
+          <select id="musicOptions" title="music options" onchange="startMusic()">
+            <option value="" selected disabled>Select Music</option>
+            <option value="https://www.youtube.com/embed/2OEL4P1Rz04">
+              Relaxation
+            </option>
+            <option value="https://www.youtube.com/embed/RqzGzwTY-6w">
+              Brown Noise
+            </option>
+            <option value="https://www.youtube.com/embed/lTRiuFIWV54">
+              Rain Drops
+            </option>
+          </select>
+          <button type="button" title="play button" id="playPauseButton" onclick="togglePlayPause()">
+            <i class="fas fa-play"></i>
+          </button>
+          <div id="musicPlayerContainer">
+            <div id="player"></div>
+          </div>
+        </div>
+      </div>
+
       <div id="timeContainer">
         <div id="time"></div>
         <div id="day"></div>
