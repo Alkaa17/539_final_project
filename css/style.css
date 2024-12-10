@@ -156,7 +156,7 @@ ul li {
 .header .addBtn {
   width: 100%;
   padding: 10px;
-  background: #4caf50;
+  background: #000000;
   color: white;
   font-size: 20px;
   cursor: pointer;
@@ -166,7 +166,7 @@ ul li {
 }
 
 .header .addBtn:hover {
-  background: #45a049;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.475);
 }
 
 #myUL {
