@@ -75,12 +75,14 @@
             <div class="task-options">
               <label for="dueDate" class="visually-hidden">Due Date</label>
               <input type="date" id="dueDate" placeholder="Due Date" />
-              <select id="priority" title="select priority">
+              <label for="priority" class="visually-hidden">Priority:</label>
+              <select id="priority">
                 <option value="red">High Priority</option>
                 <option value="orange">Medium Priority</option>
                 <option value="yellow">Low Priority</option>
               </select>
-              <span onclick="newElement()" class="addBtn">+</span>
+              
+              <button onclick="newElement()" class="addBtn" aria-label="Add Task">+</button>
             </div>
           </div>
 

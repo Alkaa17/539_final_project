@@ -82,7 +82,7 @@ ul li {
   background-color: var(--header-bg);
   color: var(--text-color);
   position: relative;
-  text-decoration: line-through; /* Strikethrough for completed tasks */
+  text-decoration: line-through;
   display: flex;
   justify-content: space-between;
 }
@@ -129,7 +129,7 @@ ul li {
   align-items: center;
 }
 
-.header h2 {
+.header h1 {
   margin: 0;
   font-size: 24px;
   color: var(--text-color);
@@ -495,4 +495,9 @@ input:checked + .slider:before {
   #myDone {
     margin: 50px 200px;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  top: -1000px;
 }
