@@ -165,18 +165,20 @@ function markAsDone(item) {
   const doneList = document.getElementById("doneUL");
   const doneItem = document.createElement("li");
 
-  const taskTitle = item.querySelector(".task-title").textContent;
-  const taskDate = item.querySelector(".task-date").textContent;
+  const taskTitle = item.querySelector(".task-title")
+    ? item.querySelector(".task-title").textContent
+    : item.textContent.split(" (")[0].trim();
+  const taskDate = item.getAttribute("data-due-date");
 
   const priority = Array.from(item.classList).find((cls) =>
     ["red", "orange", "yellow"].includes(cls)
   );
   doneItem.classList.add(priority);
 
-  doneItem.setAttribute("data-due-date", item.getAttribute("data-due-date"));
+  doneItem.setAttribute("data-due-date", taskDate);
   doneItem.setAttribute("data-timestamp", getCurrentTimestamp());
 
-  doneItem.textContent = `${taskTitle} ${taskDate}`;
+  doneItem.textContent = `${taskTitle} (Due: ${taskDate})`;
 
   const timestamp = document.createElement("span");
   timestamp.className = "timestamp";
@@ -390,3 +392,9 @@ window.onload = function () {
 
 // Add event listener to the theme toggle button
 document.getElementById("themeToggle").addEventListener("change", toggleTheme);
+
+// Toggle the music player dropdown
+document.querySelector(".music-toggle").addEventListener("click", function () {
+  const musicDropdown = document.querySelector(".music-dropdown");
+  musicDropdown.classList.toggle("active");
+});
